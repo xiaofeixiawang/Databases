@@ -28,16 +28,16 @@ Find the names of all females who eat at least one pizza served by Straw Hat. (N
 ```
 Q3  (1/1 point)
 Find all pizzerias that serve at least one pizza for less than $10 that either Amy or Fay (or both) eat. 
-
+```
 \project_{pizzeria}
     (\select_{price < 10}
         (\project_{pizza}
             (\select_{name = 'Amy' or name = 'Fay'}Eats)
         \join Serves));
-
+```
 Q4  (1/1 point)
 Find all pizzerias that serve at least one pizza for less than $10 that both Amy and Fay eat. 
-
+```
 \project_{pizzeria}
     (\select_{price < 10}
         ((
@@ -49,10 +49,10 @@ Find all pizzerias that serve at least one pizza for less than $10 that both Amy
         )
         \join Serves)
      );
-
+```
 Q5  (1/1 point)
 Find the names of all people who eat at least one pizza served by Dominos but who do not frequent Dominos. 
-
+```
 (\project_{name}
     ((\project_{pizza}
         (\select_{pizzeria = 'Dominos'}Serves))
@@ -60,10 +60,10 @@ Find the names of all people who eat at least one pizza served by Dominos but wh
 \diff
 (\project_{name}
     (\select_{pizzeria = 'Dominos'}Frequents))
-
+```
 Q6  (1/1 point)
 Find all pizzas that are eaten only by people younger than 24, or that cost less than $10 everywhere they're served. 
-
+```
 ((\project_{pizza}
     (\project_{name}
         (\select_{age<24}Person)
@@ -81,10 +81,10 @@ Find all pizzas that are eaten only by people younger than 24, or that cost less
 (\project_{pizza}
     (\select_{price>=10}Serves))
 )
-
+```
 Q7  (1/1 point)
 Find the age of the oldest person (or people) who eat mushroom pizza. 
-
+```
 (\rename_{age2}
     (\project_{age}
         ((\project_{name}
@@ -103,10 +103,10 @@ Find the age of the oldest person (or people) who eat mushroom pizza.
     (\select_{pizza = 'mushroom'}Eats 
     \join Person)))
     ))
-
+```
 Q8  (1/1 point)
 Find all pizzerias that serve only pizzas eaten by people over 30. 
-
+```
 (\project_{pizzeria}Serves)
 \diff
 (\project_{pizzeria}
@@ -120,10 +120,10 @@ Find all pizzerias that serve only pizzas eaten by people over 30.
 ))
 \join Serves)
 )
-
+```
 Q9  (1/1 point)
 Find all pizzerias that serve every pizza eaten by people over 30. 
-
+```
 (\project_{pizzeria}Serves) 
 \diff 
     (\project_{pizzeria}((\project_{pizzeria}Serves) 
@@ -131,4 +131,5 @@ Find all pizzerias that serve every pizza eaten by people over 30.
         (\project_{pizza}(\select_{age>'30'}Person \join Eats)) 
     \diff 
     (\project_{pizzeria,pizza}
-    ((\select_{age>'30'}Person \join Eats) \join Serves))))                              
+    ((\select_{age>'30'}Person \join Eats) \join Serves))))    
+```                          
