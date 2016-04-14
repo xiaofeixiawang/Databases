@@ -1,6 +1,6 @@
 Q1  (1/1 point)
 Find all pizzas eaten by at least one female over the age of 20. 
-
+```
 \project_{pizza}
     (
         (\project_{name}Eats) 
@@ -8,10 +8,10 @@ Find all pizzas eaten by at least one female over the age of 20.
         (\project_{name}
             (\select_{age>20 and gender = 'female'} Person))
         \join Eats);
-
+```
 Q2  (1/1 point)
 Find the names of all females who eat at least one pizza served by Straw Hat. (Note: The pizza need not be eaten at Straw Hat.) 
-
+```
 \project_{name}
     (
     \select_{gender = 'female'}
@@ -25,7 +25,7 @@ Find the names of all females who eat at least one pizza served by Straw Hat. (N
         \join Person
         )
      );
-
+```
 Q3  (1/1 point)
 Find all pizzerias that serve at least one pizza for less than $10 that either Amy or Fay (or both) eat. 
 
